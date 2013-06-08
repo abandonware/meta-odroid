@@ -1,0 +1,12 @@
+OpenEmbedded BSP layer for hardkernel ODROID devices
+This layer depends on:
+
+URI: git://github.com/openembedded/oe-core.git
+layers: meta
+branch: dylan
+revision: HEAD
+
+If you want to contribute changes, please send me pull
+requests via github.
+
+Main layer maintainer: Reinhard Tartler <siretart@tauware.de>
