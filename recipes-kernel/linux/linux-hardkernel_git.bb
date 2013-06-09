@@ -24,7 +24,13 @@ do_configure_prepend() {
 }
 
 do_install_append() {
+    # Helper script provided by Mauro Ribeiro
+    tools/hardkernel/genBscr.sh
     oe_runmake headers_install INSTALL_HDR_PATH=${D}${exec_prefix}/src/linux-${KERNEL_VERSION} ARCH=$ARCH
+}
+
+do_deploy_append() {
+    cp -v *.scr ${DEPLOYDIR}
 }
 
 PACKAGES =+ "kernel-headers"
