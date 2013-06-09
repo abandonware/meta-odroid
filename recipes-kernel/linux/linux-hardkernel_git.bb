@@ -3,13 +3,19 @@ SECTION = "kernel"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
+
 # Mark archs/machines that this kernel supports
 COMPATIBLE_MACHINE = "odroid-u2"
 
 inherit kernel siteinfo
 
+# from where to fetch the kernel
+KERNEL_REPO_OWNER ??= "hardkernel"
+KERNEL_REPO_URI ??= "git://github.com/${KERNEL_REPO_OWNER}/linux.git"
+KBRANCH ?= "odroid-3.8.y"
+
 SRC_URI = " \
-  git://github.com/hardkernel/linux.git;branch=odroid-3.8.y \
+  ${KERNEL_REPO_URI};branch=${KBRANCH} \
 "
 
 S = "${WORKDIR}/git/"
